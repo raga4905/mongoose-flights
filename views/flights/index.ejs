@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('../partials/header') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <title>Mongoose Flights</title>
-</head>
 
 <body>
     <h1>Flight List</h1>
     <table>
         <thead>
             <tr>
+                <th></th>
                 <th>Airline</th>
                 <th>Airport</th>
                 <th>Flight Number</th>
@@ -24,6 +17,11 @@
             <!-- Write the line of EJS to iterate over movies using forEach -->
             <% flights.forEach(function(f) {%>
             <tr>
+                <td>
+                    <form action="/flights/<%= f.id %>?_method=DELETE" class="delete-form" method="POST">
+                        <button class="X" type="submit">X</button>
+                    </form>
+                </td>
                 <td><%= f.airline %></td>
                 <td><%= f.airport %></td>
                 <td><%= f.flightNo %></td>
@@ -34,10 +32,6 @@
             <!-- Close the forEach using EJS here -->
             <% }); %>
         </tbody>
-        <a href="/flights/new">New Flight</a>
-        <br>
-        <a href="/">Home</a>
     </table>
-</body>
 
-</html>
+    <%- include('../partials/footer') %>

@@ -26,4 +26,9 @@ const flightSchema = new Schema({
     destinations: [destinationSchema], 
 });
 
+// function deleteOne(flightId) {
+//     const idx = flights.findById(flight => flight.id === parseInt(flightId));
+//     flights.splice(idx, 1);
+// }
+
 module.exports = mongoose.model('Flight', flightSchema);
