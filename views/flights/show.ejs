@@ -17,6 +17,7 @@
 <table>
     <thead>
         <tr>
+            <th></th>
             <th>Airport</th>
             <th>Arrival</th>
             <!-- <th>Rating</th> -->
@@ -25,9 +26,15 @@
     <tbody>
         <% flight.destinations.forEach(function(d) { %>
         <tr>
+            
             <td><%= d.createdAt.toLocaleDateString() %></td>
             <td><%= d.airport %></td>
             <td><%= d.arrival %></td>
+            <td>
+                <form action="/destinations/<%= d._id %>/<%= flight._id %>?_method=DELETE" class="delete-form" method="POST">
+                    <button class="X" type="submit">X</button>
+                </form>
+            </td>
         </tr>
         <% }); %>
     </tbody>
@@ -39,7 +46,7 @@
 
 <br><br>
 <h2>Destinations</h2>
-<form id="add-destination-form" method="POST" action="/flights/<%= flight._id %>/destinations">
+<form id="add-destination-form" method="POST" action="/destinations/flights/<%= flight._id %>">
     <label>Arrival:</label>
     <input type="datetime-local" name="arrives">
     <label>Airport:</label>
