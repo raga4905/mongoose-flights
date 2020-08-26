@@ -1,16 +1,47 @@
 <%- include('../partials/header') %>
 
+<table class="flightDetailsTable">
+    <thead>
+        <tr>
+            <th><img src="https://image.flaticon.com/icons/svg/2979/2979445.svg" class="plane"><br>
+                Airline</th>
+            <th><img src="https://image.flaticon.com/icons/svg/2923/2923306.svg" class="airport"><br>Airport</th>
+            <th><img src="https://image.flaticon.com/icons/svg/2979/2979389.svg" class="number"><br>Flight Number</th>
+            <th><img src="https://image.flaticon.com/icons/svg/860/860806.svg" class="clock"><br>Departs</th>
+        </tr>
+    </thead>
+    <tbody>
+        <td><%= flight.airline %></td>
+        <td><%= flight.airport %></td>
+        <td><%= flight.flightNo %></td>
+        <td><%= flight.departs %></td>
+    </tbody>
+</table>
 
-<section id="show-page">
-    <div>Airline: </div>
-    <div><%= flight.airline %></div>
-    <div>Airport: </div>
-    <div><%= flight.airport %></div>
-    <div>Flight Number: </div>
-    <div><%= flight.flightNo %></div>
-    <div>Departs: </div>
-    <div><%= flight.departs %></div>
-</section>
+<br><br><br>
+
+<a href="/flights/<%= flight._id %>/tickets/new">Get Tickets</a>
+
+<% if (ticket.length) { %>
+<table>
+    <thead>
+        <tr>
+            <th>Seat Number</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% ticket.forEach(function(t) { %>
+        <tr>
+            <td><%= t.seat %></td>
+            <td>$<%= t.price %></td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>
+<% } else { %>
+<h5>No Tickets Yet</h5>
+<% } %>
 
 <br />
 <% if (flight.destinations.length) { %>
@@ -26,12 +57,13 @@
     <tbody>
         <% flight.destinations.forEach(function(d) { %>
         <tr>
-            
+
             <td><%= d.createdAt.toLocaleDateString() %></td>
             <td><%= d.airport %></td>
             <td><%= d.arrival %></td>
             <td>
-                <form action="/destinations/<%= d._id %>/<%= flight._id %>?_method=DELETE" class="delete-form" method="POST">
+                <form action="/destinations/<%= d._id %>/<%= flight._id %>?_method=DELETE" class="delete-form"
+                    method="POST">
                     <button class="X" type="submit">X</button>
                 </form>
             </td>
@@ -60,4 +92,21 @@
     <input type="submit" value="Add Destination">
 </form>
 
-    <%- include('../partials/footer') %>
+
+
+<%- include('../partials/footer') %>
+
+
+
+
+
+<!-- <section id="show-page">
+    <div>Airline: </div>
+    <div><%= flight.airline %></div>
+    <div>Airport: </div>
+    <div><%= flight.airport %></div>
+    <div>Flight Number: </div>
+    <div><%= flight.flightNo %></div>
+    <div>Departs: </div>
+    <div><%= flight.departs %></div>
+</section> -->

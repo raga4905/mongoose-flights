@@ -1,37 +1,53 @@
-<%- include('../partials/header') %>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title><%= title %></title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300&display=swap" rel="stylesheet">
+</head>
 
 
-<body>
-    <h1>Flight List</h1>
-    <table>
-        <thead>
-            <tr>
-                <th></th>
-                <th>Airline</th>
-                <th>Airport</th>
-                <th>Flight Number</th>
-                <th>Departs</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Write the line of EJS to iterate over movies using forEach -->
-            <% flights.forEach(function(f) {%>
-            <tr>
-                <td>
-                    <form action="/flights/<%= f.id %>?_method=DELETE" class="delete-form" method="POST">
-                        <button class="X" type="submit">X</button>
-                    </form>
-                </td>
-                <td><%= f.airline %></td>
-                <td><%= f.airport %></td>
-                <td><%= f.flightNo %></td>
-                <td><%= f.departs %></td>
-                <td><a href="/flights/<%= f._id %>">DETAILS</a></td>
 
-            </tr>
-            <!-- Close the forEach using EJS here -->
-            <% }); %>
-        </tbody>
-    </table>
 
-    <%- include('../partials/footer') %>
+<h1 class="h1All">All Flights</h1>
+<div class="allFlightsTable">
+<table class=>
+    <thead>
+        <tr>
+            <th><img src="https://image.flaticon.com/icons/svg/1450/1450571.svg" class="icon"><br>Remove</th>
+            <th><img src="https://image.flaticon.com/icons/svg/2979/2979445.svg" class="icon"><br>
+                Airline</th>
+            <th><img src="https://image.flaticon.com/icons/svg/2923/2923306.svg" class="icon"><br>Airport</th>
+            <th><img src="https://image.flaticon.com/icons/svg/2979/2979389.svg" class="icon"><br>Flight Number</th>
+            <th><img src="https://image.flaticon.com/icons/svg/860/860806.svg" class="icon"><br>Departs</th>
+            <th><img src="https://image.flaticon.com/icons/svg/883/883029.svg" class="icon"><br>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Write the line of EJS to iterate over movies using forEach -->
+        <% flights.forEach(function(f) {%>
+        <tr>
+            <td>
+                <form action="/flights/<%= f.id %>?_method=DELETE" class="delete-form" method="POST">
+                    <button class="X" type="submit">X</button>
+                </form>
+            </td>
+            <td><%= f.airline %></td>
+            <td><%= f.airport %></td>
+            <td><%= f.flightNo %></td>
+            <td><%= f.departs %></td>
+            <td><a class="detailsButton" href="/flights/<%= f._id %>">.&nbsp.&nbsp.</a></td>
+
+        </tr>
+        <!-- Close the forEach using EJS here -->
+        <% }); %>
+    </tbody>
+</table>
+
+<br><br>
+
+<a class= "addFlightButton" href="/flights/new" <%- title === 'Add Flight' ? 'class="active"' : '' %>>ADD FLIGHT</a>
+</div>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+<h2>Ticket Information</h2>
+<section class="ticket-details"></section>
+<form action="/flights/<%= flight %>/tickets" method="POST">
+    <!-- this connects to routes which sets the params and then the controllers use the params (:id), flight is the id here  -->
+    <label>Pick Seat:</label>
+    <input name="seat" required pattern="[A-F][1-9]\d?">
+    <label>Price</label>
+    <input type="number" name="price" min='0'>
+    <br />
+    <input type="submit" value="Create Ticket">
+    
+</form>
+</section>
+
+<%- include('../partials/footer') %>

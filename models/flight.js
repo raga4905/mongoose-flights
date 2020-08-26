@@ -24,6 +24,10 @@ const flightSchema = new Schema({
         }
     }, 
     destinations: [destinationSchema], 
+    // flight: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Ticket'
+    // }]
 });
 
 // function deleteOne(flightId) {

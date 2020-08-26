@@ -1,48 +1,103 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px;
+  font-family: 'Sarabun', sans-serif;
 }
+
+/* "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family:  */
 
 a {
   color: white;
 }
 
+/* https://i.imgur.com/rf7pGAx.jpg */
+
+/*  */
+
+
 body {
-  background-image: url(https://i.imgur.com/eRYCqB1.jpg);
+  background: url(https://i.imgur.com/iYQ4bnj.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;  
 }
 
-nav > img {
+.nav > img {
   width: 34px;
   object-fit: contain;
   margin-right: auto;
 }
 
-nav > a {
+.nav > a {
   margin: 20px;
   text-decoration: none;
-  padding: px;
   border-radius: 5px;
+  
 }
 
-nav > a:hover {
+.nav > a:hover {
   color: white;
   background-color: #424748;
+  padding: 5px;
 }
 
-nav > a.active {
+.nav > a.active {
   color: white;
 }
 
 body > nav {
   grid-area: nav;
-  background-color: rgba(150, 157, 167);
+  background-color: transparent;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 0 20px 0 30px;
 }
 
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.detailsButton {
+  color: black;
+  font-size: 25px;
+}
+
+.X {
+  border-radius: 20%;
+}
+
+.h1All {
+  text-align: center;
+  color: white;
+  margin: 20px;
+  padding-bottom: 30px;
+}
+
+.addFlightButton {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 td {
   padding-right: 20px;
   padding-left: 20px;
+}
+
+.allFlightsTable {
+  margin-left:auto;
+  margin-right:auto;
+  padding: 30px;
+  size: auto 40px auto 40px;
+  border-radius: 25px;
+  background-color: whitesmoke;
+}
+
+.flightDetailsTable {
+  margin-left:auto;
+  margin-right:auto;
+  padding: 30px;
+  size: auto 40px auto 40px;
+  border-radius: 25px;
+  background-color: whitesmoke;
 }
