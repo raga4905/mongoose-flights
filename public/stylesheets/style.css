@@ -78,6 +78,7 @@ h1 {
   display:block;
   font-weight: bold;
   color: black;
+  font-size: large;
 }
 
 td {
@@ -85,9 +86,25 @@ td {
   padding-left: 20px;
 }
 
+/* th {
+  background-color: rgba(236, 192, 151);
+  color: white;
+  border: none;
+  border-collapse: collapse;
+} */
+
 .table {
   margin-left:auto;
   margin-right:auto;
+  padding: 30px;
+  size: auto 40px auto 40px;
+  border-radius: 25px;
+  background-color: whitesmoke;
+  color: black;
+  text-align: center;
+}
+
+.seat-table {
   padding: 30px;
   size: auto 40px auto 40px;
   border-radius: 25px;
@@ -105,10 +122,3 @@ td {
   background-color: whitesmoke;
   text-align: center;
 }
-/* 
-.ticket-button {
-  color: white;
-  background-color: #424748;
-  padding: 5px;
-  border-radius: 20%;
-} */
