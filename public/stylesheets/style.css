@@ -17,8 +17,7 @@ a {
 
 
 body {
-  background: url(https://i.imgur.com/iYQ4bnj.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;  
+  background: url(https://i.imgur.com/iYQ4bnj.jpg) no-repeat center center fixed;  
 }
 
 .nav > img {
@@ -67,7 +66,7 @@ body > nav {
   border-radius: 20%;
 }
 
-.h1All {
+h1 {
   text-align: center;
   color: white;
   margin: 20px;
@@ -75,8 +74,8 @@ body > nav {
 }
 
 .addFlightButton {
-  margin-left: auto;
-  margin-right: auto;
+  width:50%;
+  margin:auto;
 }
 
 td {
@@ -84,20 +83,23 @@ td {
   padding-left: 20px;
 }
 
-.allFlightsTable {
+.table {
   margin-left:auto;
   margin-right:auto;
   padding: 30px;
   size: auto 40px auto 40px;
   border-radius: 25px;
   background-color: whitesmoke;
+  color: black;
+  text-align: center;
 }
 
-.flightDetailsTable {
+.create-ticket {
   margin-left:auto;
   margin-right:auto;
   padding: 30px;
   size: auto 40px auto 40px;
   border-radius: 25px;
   background-color: whitesmoke;
+  text-align: center;
 }

@@ -1,13 +1,13 @@
 <%- include('../partials/header') %>
 
-<table class="flightDetailsTable">
+<table class="table">
     <thead>
         <tr>
-            <th><img src="https://image.flaticon.com/icons/svg/2979/2979445.svg" class="plane"><br>
+            <th><img src="https://image.flaticon.com/icons/svg/2979/2979445.svg" class="icon"><br>
                 Airline</th>
-            <th><img src="https://image.flaticon.com/icons/svg/2923/2923306.svg" class="airport"><br>Airport</th>
-            <th><img src="https://image.flaticon.com/icons/svg/2979/2979389.svg" class="number"><br>Flight Number</th>
-            <th><img src="https://image.flaticon.com/icons/svg/860/860806.svg" class="clock"><br>Departs</th>
+            <th><img src="https://image.flaticon.com/icons/svg/2923/2923306.svg" class="icon"><br>Airport</th>
+            <th><img src="https://image.flaticon.com/icons/svg/2979/2979389.svg" class="icon"><br>Flight Number</th>
+            <th><img src="https://image.flaticon.com/icons/svg/860/860806.svg" class="icon"><br>Departs</th>
         </tr>
     </thead>
     <tbody>
@@ -18,12 +18,67 @@
     </tbody>
 </table>
 
-<br><br><br>
+<br><br>
 
-<a href="/flights/<%= flight._id %>/tickets/new">Get Tickets</a>
+
+<div class="table">
+    <h2><img src="https://image.flaticon.com/icons/svg/814/814587.svg" class="icon"><br>Destinations</h2>
+    <% if (flight.destinations.length) { %>
+    <table>
+        <thead>
+            <tr>
+                <th>Arrival</th>
+                <th>Airport</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% flight.destinations.forEach(function(d) { %>
+            <tr>
+
+                <td><%= d.createdAt.toLocaleDateString() %></td>
+                <td><%= d.airport %></td>
+                <td><%= d.arrival %></td>
+                <td>
+                    <form action="/destinations/<%= d._id %>/<%= flight._id %>?_method=DELETE" class="delete-form"
+                        method="POST">
+                        <button class="X" type="submit">X</button>
+                    </form>
+                </td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <% } else { %>
+    <h5>No Destinations Yet</h5>
+    <% } %>
+
+
+    <br><br>
+
+    <form id="add-destination-form" method="POST" action="/destinations/flights/<%= flight._id %>">
+        <label>Arrival:</label>
+        <input type="datetime-local" name="arrives">
+        <label>Airport:</label>
+        <select name="airport">
+            <option value="ATL">ATL</option>
+            <option value="DFW">DFW</option>
+            <option value="DEN">DEN</option>
+            <option value="LAX">LAX</option>
+            <option value="SAN">SAN</option>
+        </select>
+        <input type="submit" value="Add Destination">
+    </form>
+</div>
+
+<br><br>
+
+
+<div class="table">
+<a style="color:#000000" href="/flights/<%= flight._id %>/tickets/new"><img src="https://image.flaticon.com/icons/svg/860/860332.svg" class="icon"><br>Get Tickets</a>
 
 <% if (ticket.length) { %>
-<table>
+<table >
     <thead>
         <tr>
             <th>Seat Number</th>
@@ -42,55 +97,8 @@
 <% } else { %>
 <h5>No Tickets Yet</h5>
 <% } %>
+</div>
 
-<br />
-<% if (flight.destinations.length) { %>
-<table>
-    <thead>
-        <tr>
-            <th></th>
-            <th>Airport</th>
-            <th>Arrival</th>
-            <!-- <th>Rating</th> -->
-        </tr>
-    </thead>
-    <tbody>
-        <% flight.destinations.forEach(function(d) { %>
-        <tr>
-
-            <td><%= d.createdAt.toLocaleDateString() %></td>
-            <td><%= d.airport %></td>
-            <td><%= d.arrival %></td>
-            <td>
-                <form action="/destinations/<%= d._id %>/<%= flight._id %>?_method=DELETE" class="delete-form"
-                    method="POST">
-                    <button class="X" type="submit">X</button>
-                </form>
-            </td>
-        </tr>
-        <% }); %>
-    </tbody>
-</table>
-<% } else { %>
-<h5>No Destinations Yet</h5>
-<% } %>
-
-
-<br><br>
-<h2>Destinations</h2>
-<form id="add-destination-form" method="POST" action="/destinations/flights/<%= flight._id %>">
-    <label>Arrival:</label>
-    <input type="datetime-local" name="arrives">
-    <label>Airport:</label>
-    <select name="airport">
-        <option value="ATL">ATL</option>
-        <option value="DFW">DFW</option>
-        <option value="DEN">DEN</option>
-        <option value="LAX">LAX</option>
-        <option value="SAN">SAN</option>
-    </select>
-    <input type="submit" value="Add Destination">
-</form>
 
 
 
