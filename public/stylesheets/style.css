@@ -73,9 +73,11 @@ h1 {
   padding-bottom: 30px;
 }
 
-.addFlightButton {
-  width:50%;
-  margin:auto;
+.addFlightLink {
+  text-align:center;
+  display:block;
+  font-weight: bold;
+  color: black;
 }
 
 td {
@@ -103,3 +105,10 @@ td {
   background-color: whitesmoke;
   text-align: center;
 }
+/* 
+.ticket-button {
+  color: white;
+  background-color: #424748;
+  padding: 5px;
+  border-radius: 20%;
+} */

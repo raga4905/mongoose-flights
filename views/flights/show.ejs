@@ -1,8 +1,10 @@
 <%- include('../partials/header') %>
 
+<h1>Flight</h1>
+
 <table class="table">
     <thead>
-        <tr>
+        <tr >
             <th><img src="https://image.flaticon.com/icons/svg/2979/2979445.svg" class="icon"><br>
                 Airline</th>
             <th><img src="https://image.flaticon.com/icons/svg/2923/2923306.svg" class="icon"><br>Airport</th>
@@ -75,12 +77,13 @@
 
 
 <div class="table">
-<a style="color:#000000" href="/flights/<%= flight._id %>/tickets/new"><img src="https://image.flaticon.com/icons/svg/860/860332.svg" class="icon"><br>Get Tickets</a>
+<a class= "ticket-button" style="color:#000000" href="/flights/<%= flight._id %>/tickets/new"><img src="https://image.flaticon.com/icons/svg/860/860332.svg" class="icon"><br>Get Tickets</a>
 
 <% if (ticket.length) { %>
 <table >
     <thead>
         <tr>
+            <!-- <th></th> -->
             <th>Seat Number</th>
             <th>Price</th>
         </tr>
@@ -88,6 +91,11 @@
     <tbody>
         <% ticket.forEach(function(t) { %>
         <tr>
+            <!-- <td>
+                <form action="/tickets/<%=ticket._id%>?_method=DELETE" method="POST">
+                    <button class="small-button red-button" type="submit">X</button>
+                </form>
+            </td> -->
             <td><%= t.seat %></td>
             <td>$<%= t.price %></td>
         </tr>
