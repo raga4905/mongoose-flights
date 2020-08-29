@@ -1,5 +1,10 @@
 <%- include('../partials/header') %>
 
+<nav class="nav">
+    <a href="/flights/new" <%- title === 'Add Flight' ? 'class="active"' : '' %>>ADD FLIGHT</a>
+    <a href="/flights" <%- title === 'All Flights' ? 'class="active"' : '' %>>ALL FLIGHTS</a>
+</nav>
+
 <h1>Ticket Information</h1>
 <section class="ticket-details"></section>
 <form class="create-ticket" action="/flights/<%= flight %>/tickets" method="POST">
