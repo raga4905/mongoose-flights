@@ -11,13 +11,12 @@ a {
   color: white;
 }
 
-/* https://i.imgur.com/rf7pGAx.jpg */
-
+/* https://i.imgur.com/iYQ4bnj.jpg */
 /*  */
 
 
 body {
-  background: url(https://i.imgur.com/iYQ4bnj.jpg) no-repeat center center fixed;  
+  background: url(https://i.imgur.com/rf7pGAx.jpg) no-repeat center center fixed;  
 }
 
 .nav > img {
@@ -77,7 +76,7 @@ h1 {
   text-align:center;
   display:block;
   font-weight: bold;
-  color: black;
+  color: white;
   font-size: large;
 }
 
